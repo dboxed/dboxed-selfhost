@@ -4,3 +4,5 @@ This repository contains scripts and configuration required to self-host the dbo
 
 The officially supported deployment method is Docker Compose. In the future, you will find different variants in the
 sub-folders of this repository. For now, only a [Dex](https://dexidp.io) based setup is provided. 
+
+Please check the documentation for details: https://dboxed.io/docs/self-hosting
