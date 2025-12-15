@@ -48,6 +48,8 @@ services:
   postgres:
     image: postgres:18.1-alpine
     restart: unless-stopped
+    networks:
+      - dboxed
     # set shared memory limit when using docker compose
     shm_size: 128mb
     env_file:
