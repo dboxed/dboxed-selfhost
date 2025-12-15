@@ -11,8 +11,9 @@ services:
         set -e
         apk add envsubst
         for i in $$(ls /templates/*.yaml); do
-          echo $$i
-          cat /templates/$$i | envsubst > /configs/$$i
+          bn=$$(basename $$i)
+          echo $$i -> $$bn
+          cat $$i | envsubst > /configs/$$bn
         done
     volumes:
       - ./configs:/templates
