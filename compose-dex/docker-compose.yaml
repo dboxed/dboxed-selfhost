@@ -57,8 +57,12 @@ services:
     image: dexidp/dex:v2.44.0-distroless
     restart: unless-stopped
     depends_on:
-      - postgres
-      - configs
+      postgres:
+        condition: service_healthy
+        restart: true
+      configs:
+        condition: service_completed_successfully
+        restart: true
     command:
       - dex
       - serve
@@ -82,8 +86,12 @@ services:
     networks:
       - dboxed
     depends_on:
-      - postgres
-      - configs
+      postgres:
+        condition: service_healthy
+        restart: true
+      configs:
+        condition: service_completed_successfully
+        restart: true
     command:
       - server
       - run
@@ -111,7 +119,12 @@ services:
     networks:
       - dboxed
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+        restart: true
+      configs:
+        condition: service_completed_successfully
+        restart: true
     command:
       - server
       - run
