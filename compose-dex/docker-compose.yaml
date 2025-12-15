@@ -54,7 +54,7 @@ services:
       - ./initdb.d:/docker-entrypoint-initdb.d/
 
   dex:
-    image: v2.44.0-distroless
+    image: dexidp/dex:v2.44.0-distroless
     restart: unless-stopped
     depends_on:
       - postgres
