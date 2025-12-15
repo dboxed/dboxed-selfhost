@@ -1,3 +1,4 @@
+name: dboxed-server
 
 services:
   # This container will perform some replacements inside configurations files
@@ -51,6 +52,7 @@ services:
     env_file:
       - ./.env
     volumes:
+      - ${DBOXED_DATA_DIR}/postgres:/var/lib/postgresql/data
       - ./initdb.d:/docker-entrypoint-initdb.d/
 
   dex:
