@@ -10,6 +10,10 @@ services:
       - |
         set -e
         apk add envsubst
+        if env | grep super-secret-password &> /dev/null; then
+          echo "It seems like you forgot to replace on of the database passwords with a unique and secure password!"
+          exit 1
+        fi
         for i in $$(ls /templates/*.yaml); do
           bn=$$(basename $$i)
           echo $$i -> $$bn
