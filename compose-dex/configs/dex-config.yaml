@@ -1,0 +1,30 @@
+issuer: https://${DBOXED_HOSTNAME}/dex
+
+storage:
+  type: postgres
+  config:
+    host: postgres
+    port: 5432
+    database: "${POSTGRES_DEX_DATABASE}"
+    user: "${POSTGRES_DEX_USER}"
+    password: "${POSTGRES_DEX_PASSWORD}"
+    #ssl:
+    #  mode: verify-ca
+    #  caFile: /etc/dex/postgres.ca
+
+web:
+  http: 0.0.0.0:5556
+
+staticClients:
+  - id: dboxed
+    public: true
+    redirectURIs:
+      - 'https://${DBOXED_HOSTNAME}/'
+    name: 'dboxed'
+
+enablePasswordDB: true
+
+staticPasswords:
+  - email: "${ADMIN_EMAIL}"
+    hash: "${ADMIN_PASSWORD_HASH}"
+    username: "${ADMIN_USERNAME}"
