@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
+if env | grep super-secret-password &> /dev/null; then
+  echo "It seems like you forgot to replace on of the database passwords with a unique and secure password!"
+  exit 1
+fi
+
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
 	CREATE DATABASE ${POSTGRES_DEX_DATABASE};
 	CREATE USER ${POSTGRES_DEX_USER} WITH PASSWORD '${POSTGRES_DEX_PASSWORD}';

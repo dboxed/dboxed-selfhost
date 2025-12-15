@@ -86,7 +86,6 @@ services:
 
   dboxed-api:
     image: "ghcr.io/dboxed/dboxed:${DBOXED_VERSION}"
-    pull_policy: always
     restart: unless-stopped
     networks:
       - dboxed
@@ -119,7 +118,6 @@ services:
 
   dboxed-reconcilers:
     image: "ghcr.io/dboxed/dboxed:${DBOXED_VERSION}"
-    pull_policy: always
     restart: unless-stopped
     networks:
       - dboxed
@@ -146,7 +144,6 @@ services:
 
   dboxed-frontend:
     image: "ghcr.io/dboxed/dboxed-frontend:${DBOXED_FRONTEND_VERSION}"
-    pull_policy: always
     restart: unless-stopped
     networks:
       - dboxed
