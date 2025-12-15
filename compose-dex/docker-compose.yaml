@@ -22,7 +22,7 @@ services:
       - ./.env
 
   traefik:
-    image: "traefik:v3.5"
+    image: "traefik:v3.6"
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
