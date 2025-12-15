@@ -8,9 +8,8 @@ storage:
     database: "${POSTGRES_DEX_DATABASE}"
     user: "${POSTGRES_DEX_USER}"
     password: "${POSTGRES_DEX_PASSWORD}"
-    #ssl:
-    #  mode: verify-ca
-    #  caFile: /etc/dex/postgres.ca
+    ssl:
+      mode: disable
 
 web:
   http: 0.0.0.0:5556
