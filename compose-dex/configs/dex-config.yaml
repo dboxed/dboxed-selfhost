@@ -18,7 +18,8 @@ staticClients:
   - id: dboxed
     public: true
     redirectURIs:
-      - 'https://${DBOXED_HOSTNAME}/'
+      - 'https://${DBOXED_HOSTNAME}/device/callback'
+      - /device/callback
     name: 'dboxed'
 
 enablePasswordDB: true
