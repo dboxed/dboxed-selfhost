@@ -18,7 +18,7 @@ staticClients:
   - id: dboxed
     public: true
     redirectURIs:
-      - 'https://${DBOXED_HOSTNAME}/device/callback'
+      - 'https://${DBOXED_HOSTNAME}/'
       - /device/callback
     name: 'dboxed'
 
